@@ -1,0 +1,20 @@
+version: "1"
+
+services:
+  website:
+    image: website_image
+    ports:
+      - "8080:8080"
+    networks:
+      - webnet
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: data
+    networks:
+      - webnet
+
+networks:
+  webnet:
